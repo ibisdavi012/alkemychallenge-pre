@@ -1,6 +1,5 @@
 .header {
     background: url('./assets/bar.svg') repeat-x;
-    margin: 0 auto;
     background-color: rgb(39, 39, 38);
     display: flex;
     justify-content: space-between;

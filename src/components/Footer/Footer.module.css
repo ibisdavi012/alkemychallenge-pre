@@ -1,4 +1,4 @@
-.header {
+.footer {
     background: url('./assets/bar.svg') repeat-x;
     margin: 0 auto;
     background-color: rgb(39, 39, 38);
@@ -6,6 +6,10 @@
     justify-content: space-between;
     overflow: hidden;
     padding: 0px;
+    position: fixed;
+    bottom: 0;
+    background-size: contain;
+    background-position: center;
 }
 
 .flareContainer {
@@ -16,10 +20,15 @@
 .flare {
     position: relative;
     left: 100%;
+    bottom: -24%;
     animation: show-flare 6s ease-out infinite;
     animation-delay: 2s;
     opacity: 0;
     z-index: 2;
+    border: 1px solid red;
+    height: 10px;
+    width: 10px;
+    background: url('./assets/flare.svg') repeat-x;
 }
 
 @keyframes show-flare {
@@ -33,4 +42,8 @@
         opacity: 0;
         left: 0;
     }
+}
+
+.cornerImage {
+    width: 20vw;
 }

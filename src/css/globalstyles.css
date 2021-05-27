@@ -11,9 +11,4 @@ body {
     background: url('../assets/images/background.svg');
     background-position: center center;
     line-height: 24px;
-    min-width: 311px;
-}
-
-.container {
-    max-width: 720px;
 }
