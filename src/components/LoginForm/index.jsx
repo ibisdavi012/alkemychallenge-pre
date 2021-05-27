@@ -4,7 +4,7 @@ export default class LoginForm extends Component {
   render() {
     return (
       <div>
-        
+        USER & PASS
       </div>
     )
   }

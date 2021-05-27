@@ -1,16 +1,25 @@
 import React from 'react';
 import Layout from '../Layout';
-import LoginForm from '../LoginForm'
+
 
 export default class PageContent extends React.Component 
 {
     render(){
-        const loggedIn = true;
-
+        const loggedIn = false;
+        const RedirectTo = this.props.redirectTo;
         return(
             <Layout>
-                {loggedIn ? this.props.children : <LoginForm />}
+                {!this.props.requireAuthentication || loggedIn ? 
+                    this.props.children 
+                : 
+                this.props.redirectTo != null ? <RedirectTo /> : <h1>Acceso Denegado</h1>
+                }
             </Layout>
         )
     }
 }
+
+PageContent.defaultProps = {
+    requireAuthentication: false,
+    redirectTo: null
+};
