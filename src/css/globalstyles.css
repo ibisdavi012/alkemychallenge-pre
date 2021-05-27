@@ -1,0 +1,19 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: white;
+    background-color: rgb(24, 22, 22);
+    background: url('../assets/images/background.svg');
+    background-position: center center;
+    line-height: 24px;
+    min-width: 311px;
+}
+
+.container {
+    max-width: 720px;
+}

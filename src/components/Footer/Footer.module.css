@@ -1,0 +1,36 @@
+.header {
+    background: url('./assets/bar.svg') repeat-x;
+    margin: 0 auto;
+    background-color: rgb(39, 39, 38);
+    display: flex;
+    justify-content: space-between;
+    overflow: hidden;
+    padding: 0px;
+}
+
+.flareContainer {
+    width: 80%;
+    overflow: hidden;
+}
+
+.flare {
+    position: relative;
+    left: 100%;
+    animation: show-flare 6s ease-out infinite;
+    animation-delay: 2s;
+    opacity: 0;
+    z-index: 2;
+}
+
+@keyframes show-flare {
+    10% {
+        opacity: 1
+    }
+    90% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+        left: 0;
+    }
+}
