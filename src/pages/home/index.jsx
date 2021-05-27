@@ -6,8 +6,8 @@ import styled from 'styled-components';
 export default class Home extends React.Component {
        
     render(){
-        const PageTitle = styled.h2`
-        `;
+        const PageTitle = styled.h2``;
+        
         return (
             <PageContent>
                 <PageTitle>Home</PageTitle>
