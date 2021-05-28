@@ -1,7 +1,7 @@
 import axios from 'axios';
 const AUTH_URL = 'http://challenge-react.alkemy.org/';
 
-export default class Userlogin {
+export default class UserLogin {
 
   constructor(){
 

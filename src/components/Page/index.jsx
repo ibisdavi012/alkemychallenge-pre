@@ -7,19 +7,24 @@ export default class Page extends React.Component
     render(){
         const loggedIn = false;
         const RedirectTo = this.props.redirectTo;
+        const PageContent = this.props.children;
+        const requireAuthentication = this.props.requireAuthentication;
         return(
             <Layout>
-                {!this.props.requireAuthentication || loggedIn ? 
-                    this.props.children 
+                {!requireAuthentication || loggedIn ? 
+                    <PageContent />
                 : 
-                this.props.redirectTo != null ? <RedirectTo /> : <h1>Acceso Denegado</h1>
+                    RedirectTo != null ? 
+                        <RedirectTo /> 
+                    : 
+                        <h1>Acceso Denegado</h1>
                 }
             </Layout>
         )
     }
 }
 
-PageContent.defaultProps = {
+Page.defaultProps = {
     requireAuthentication: false,
     redirectTo: null
 };
