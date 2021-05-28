@@ -1,35 +1,47 @@
-.header {
-    background: url('./assets/bar.svg') repeat-x;
-    background-color: rgb(39, 39, 38);
-    display: flex;
-    justify-content: space-between;
-    overflow: hidden;
-    padding: 0px;
-}
-
-.flareContainer {
-    width: 80%;
-    overflow: hidden;
-}
-
-.flare {
-    position: relative;
-    left: -10%;
-    animation: show-flare 6s ease-out infinite;
-    animation-delay: 2s;
-    opacity: 0;
-    z-index: 2;
-}
-
-@keyframes show-flare {
-    10% {
-        opacity: 1
-    }
-    90% {
-        opacity: 1;
-    }
-    100% {
-        opacity: 0;
-        left: 100%;
-    }
-}
+ .header {
+     background: url('./assets/bar.svg') repeat-x;
+     background-size: contain;
+     background-color: rgb(39, 39, 38);
+     display: flex;
+     justify-content: space-between;
+     align-items: flex-start;
+     padding: 0px;
+     position: fixed;
+     top: 0;
+     height: 5vh;
+     width: 100%;
+ }
+ 
+ .flareContainer {
+     width: 100%;
+     overflow: hidden;
+ }
+ 
+ .flare {
+     position: relative;
+     left: 0%;
+     top: 0%;
+     animation: show-flare 6s ease-out infinite;
+     animation-delay: 2s;
+     opacity: 0;
+     z-index: 2;
+     height: 10vh;
+     width: 10vh;
+ }
+ 
+ @keyframes show-flare {
+     10% {
+         opacity: 1
+     }
+     90% {
+         opacity: 1;
+     }
+     100% {
+         opacity: 0;
+         left: 100%;
+     }
+ }
+ 
+ .cornerImage {
+     height: 120%;
+ }

@@ -1,15 +1,55 @@
 import React, { Component } from 'react'
-
+import Container from 'react-bootstrap/Container';
+import Form from 'react-bootstrap/Form';
+import Button from 'react-bootstrap/Button';
+import Col from 'react-bootstrap/Col';
+import Row from 'react-bootstrap/Row';
+import IronManImage from './assets/ironman.png';
 export default class LoginForm extends Component {
   render() {
+    const validateLogin = (e) => {
+      e.preventDefault(); 
+      alert('Validando Login');
+    }
+
     return (
-      <form className="login-fom">
-          <label htmlFor="">Email</label>
-          <input type="email" name="" id="" />
-           <label htmlFor="">Password</label>
-          <input type="password" name="" id="" />
-          <button>Iniciar Sesión</button>
-      </form>
+
+      <Container>
+          <div style={{marginTop:"10vh"}}>
+        <Row className="justify-content-center align-middle">
+          <Col xl={2} md={3} fluid="sm">
+            <img src={IronManImage} alt="" style={{width:"100%"}}/>
+          </Col>
+        </Row>
+        <Row className="justify-content-center align-middle">
+          <Col>
+              <p className="text-center">Debes iniciar sesión para poder acceder a este sition.</p>
+          </Col>
+        </Row>
+
+        <Row className="justify-content-center align-middle">
+          <Col lg={5} xs={8}>
+            <Form onSubmit={validateLogin}>
+              <Form.Group controlId="userEmail">
+                <Form.Label>Correo Electrónico</Form.Label>
+                <Form.Control type="email" placeholder="Correo Electrónico" />
+              </Form.Group>
+        
+              <Form.Group controlId="userPassword">
+                <Form.Label>Contraseña</Form.Label>
+                <Form.Control type="password" placeholder="Contraseña" />
+              </Form.Group>
+              <Form.Group controlId="userPassword">
+                <Button variant="primary" type="submit" >
+                  Iniciar Sesión
+                </Button>
+              </Form.Group>
+            </Form>
+         
+          </Col>
+        </Row>
+        </div>
+      </Container>
     )
   }
 }

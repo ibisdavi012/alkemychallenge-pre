@@ -7,14 +7,14 @@ import React from 'react';
 class Header extends React.Component {
     render(){        
         return (
-            <header className={`container ${styles.header}`}>
-                    <img src={CornerLeft} alt="" />
+            <header className={styles.header}>
+                    <img  className={styles.cornerImage} src={CornerLeft} alt="" />
                     
                     <div className={styles.flareContainer}>
                         <img src={Flare} alt="" className={styles.flare}/>
                     </div>
 
-                    <img src={CornerRight} alt=""/>
+                    <img  className={styles.cornerImage} src={CornerRight} alt=""/>
             </header>
         )
     }
