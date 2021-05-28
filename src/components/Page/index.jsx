@@ -1,21 +1,20 @@
 import React from 'react';
 import Layout from '../Layout';
-
+import {Redirect} from 'react-router-dom';
 
 export default class Page extends React.Component 
 {
     render(){
-        const loggedIn = false;
+        const loggedIn = localStorage.getItem('logged') !== null;
         const RedirectTo = this.props.redirectTo;
-        const PageContent = this.props.children;
         const requireAuthentication = this.props.requireAuthentication;
         return(
             <Layout>
                 {!requireAuthentication || loggedIn ? 
-                    <PageContent />
+                    this.props.children
                 : 
-                    RedirectTo != null ? 
-                        <RedirectTo /> 
+                    RedirectTo ? 
+                        <Redirect to={RedirectTo} />
                     : 
                         <h1>Acceso Denegado</h1>
                 }

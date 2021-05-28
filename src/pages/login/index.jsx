@@ -8,14 +8,22 @@ import IronManImage from './assets/ironman.png';
 import {Formik} from 'formik';
 import * as Yup from 'yup';
 import UserLogin from '../../js/api/user-login';
+import {Redirect} from 'react-router-dom';
 
 export default class Login extends Component {
   render() {
     
     const userLogin = new UserLogin();
     
+    let logged = false;
+
+    userLogin.started = () => {
+      console.log('Login Started');
+    }
+
     userLogin.success = (e) => {
       console.log('Login Success');
+      localStorage.setItem('logged','yes');
     }
     
     userLogin.failed = (e) => {
@@ -46,7 +54,8 @@ export default class Login extends Component {
     }
     return (
 
-      <Container>
+      <Container>{
+        !logged ? 
           <div style={{marginTop:"10vh"}}>
         <Row className="justify-content-center align-middle">
           <Col xl={2} md={3} fluid="sm">
@@ -85,6 +94,7 @@ export default class Login extends Component {
           </Col>
         </Row>
         </div>
+        : <Redirect to="/" />}
       </Container>
     )
   }
