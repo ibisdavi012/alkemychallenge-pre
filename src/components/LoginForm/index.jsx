@@ -5,11 +5,20 @@ import Button from 'react-bootstrap/Button';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import IronManImage from './assets/ironman.png';
+import axios from 'axios';
+
 export default class LoginForm extends Component {
   render() {
     const validateLogin = (e) => {
       e.preventDefault(); 
-      alert('Validando Login');
+      axios.get('http://challenge-react.alkemy.org/',{params:{
+        email:'challenge@alkemy.org', password:'react'
+      }})
+      .then(data=>{
+console.log(data)
+      })
+      .catch()
+      .then()
     }
 
     return (
