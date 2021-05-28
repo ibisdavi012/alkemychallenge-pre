@@ -14,15 +14,15 @@ export default class Login extends Component {
     
     const userLogin = new UserLogin();
     
-    userLogin.success = () => {
+    userLogin.success = (e) => {
       console.log('Login Success');
     }
     
-    userLogin.failed = () => {
+    userLogin.failed = (e) => {
       console.log('Login Failed');
     }
     
-    userLogin.error = () => {
+    userLogin.error = (e) => {
       console.log('Login Error');
     }
     

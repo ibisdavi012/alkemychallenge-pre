@@ -13,26 +13,39 @@ export default class UserLogin {
   }
 
   handleAuthenticationResponse = (response) => {
-    if(response.data.token) {
-      console.log(response.data.token);
-      this.success(response.data.token);
-    }
+         if (response.data.token && typeof this.success === "function") {
+          this.success(response.data.token);
+         }
+          else{
+            if (typeof this.failed === "function")
+              this.failed(response);
+          }
   }
 
   handleAuthenticationError = (error) => {
-    console.log('handleAuthenticationError:',error);
+  
+    if (error.response === undefined) {
+      if(typeof this.error === "function")
+        this.error(error.message);
+    }
+    else {
+      if (typeof this.failed === "function")
+        this.failed(error.response);
+    }
   }
 
   handleAuthenticationCompleted = () => {
-
+      if (typeof this.completed === "function") 
+        this.completed();
   }
 
   authenticate(credentials) {
 
-    axios.post(AUTH_URL, credentials)
+   axios.post(AUTH_URL, credentials)
     .then(this.handleAuthenticationResponse)
     .catch(this.handleAuthenticationError)
     .then(this.handleAuthenticationCompleted);
+  
   }
 
   isUserAuthenticated() {
