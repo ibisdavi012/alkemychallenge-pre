@@ -2,7 +2,7 @@ import React from 'react';
 import Layout from '../Layout';
 
 
-export default class PageContent extends React.Component 
+export default class Page extends React.Component 
 {
     render(){
         const loggedIn = false;

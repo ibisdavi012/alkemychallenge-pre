@@ -30,13 +30,13 @@ export default class Login extends Component {
       console.log('Login Completed');
     }
     
-    const initialValues = {email:'', password:''};
+    const formInitialValues = {email:'', password:''};
     
-    const onSubmit = (values, setSubmitting) => {
+    const onFormSubmit = (values, setSubmitting) => {
       userLogin.authenticate(values);
     }
     
-    function validationSchema(values) {
+    function formValidationSchema(values) {
       const schema = Yup.object({
         email: Yup.string().email('La dirección de correo no tiene un formato válido.').required('La dirección de correo es obligatoria.'),
         password: Yup.string().required('La contraseña es requerida para poder validar su acceso.')
@@ -61,7 +61,7 @@ export default class Login extends Component {
 
         <Row className="justify-content-center align-middle">
           <Col lg={5} xs={8}>            
-         <Formik initialValues={initialValues} validationSchema={validationSchema} onSubmit={onSubmit} >
+         <Formik initialValues={formInitialValues} validationSchema={formValidationSchema} onSubmit={onFormSubmit} >
            {(formik)=>(<Form onSubmit={formik.handleSubmit}>
               <Form.Group controlId="userEmail">
                 <Form.Label>Correo Electrónico</Form.Label>
