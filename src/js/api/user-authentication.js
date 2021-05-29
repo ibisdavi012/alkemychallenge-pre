@@ -5,11 +5,11 @@ const AUTH_TOKEN_NAME = 'alkemyHeroesAppToken';
 export default class UserAuthentication {
 
   constructor(){
-    this.started = () => {}
-    this.success = () => {}
-    this.failed = () => {}
-    this.error = () => {}
-    this.completed = () => {}
+    this.started = this.started.bind(this);
+    this.success = this.success.bind(this);
+    this.failed = this.failed.bind(this);
+    this.error = this.error.bind(this);
+    this.completed = this.completed.bind(this);
   }
 
   handleAuthenticationResponse = (response) => {
