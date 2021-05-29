@@ -1,65 +1,49 @@
 import React, { Component } from 'react'
 import Container from 'react-bootstrap/Container';
-import Form from 'react-bootstrap/Form';
-import Button from 'react-bootstrap/Button';
+import {Redirect} from 'react-router-dom';
+import UserAuthentication from '../../js/api/user-authentication';
+import LoginForm from '../../components/LoginForm';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
-import IronManImage from './assets/ironman.png';
-import {Formik} from 'formik';
-import * as Yup from 'yup';
-import UserLogin from '../../js/api/user-login';
-import {Redirect} from 'react-router-dom';
+import FormImage from './assets/ironman.png';
+import DismissAlert from '../../components/DismissAlert';
 
 export default class Login extends Component {
+
+  constructor(props) {
+    super(props);
+    this.state = {authentication_status: 'standby'}
+  }
+
   render() {
     
-    const userLogin = new UserLogin();
-    
-    let logged = false;
+    const authentication = new UserAuthentication();
 
-    userLogin.started = () => {
-      console.log('Login Started');
+    authentication.success = (e) => {
+      this.setState({authentication_status:'success'});
+    }
+    
+    authentication.failed = (e) => {
+      this.setState({authentication_status:'failed'});
+    }
+    
+    authentication.error = (e) => {
+      this.setState({authentication_status:'error'});
+    }
+        
+    const onSubmit = (values) => {
+      authentication.validate(values);
     }
 
-    userLogin.success = (e) => {
-      console.log('Login Success');
-      localStorage.setItem('logged','yes');
-    }
-    
-    userLogin.failed = (e) => {
-      console.log('Login Failed');
-    }
-    
-    userLogin.error = (e) => {
-      console.log('Login Error');
-    }
-    
-    userLogin.completed = () => {
-      console.log('Login Completed');
-    }
-    
-    const formInitialValues = {email:'', password:''};
-    
-    const onFormSubmit = (values, setSubmitting) => {
-      userLogin.authenticate(values);
-    }
-    
-    function formValidationSchema(values) {
-      const schema = Yup.object({
-        email: Yup.string().email('La dirección de correo no tiene un formato válido.').required('La dirección de correo es obligatoria.'),
-        password: Yup.string().required('La contraseña es requerida para poder validar su acceso.')
-      });
-    
-      return schema;
-    }
+    const token = localStorage.getItem('alkemyHeroesAppToken');
+  
     return (
 
-      <Container>{
-        !logged ? 
-          <div style={{marginTop:"10vh"}}>
-        <Row className="justify-content-center align-middle">
+      <Container>
+      
+      <Row className="justify-content-center align-middle">
           <Col xl={2} md={3} fluid="sm">
-            <img src={IronManImage} alt="" style={{width:"100%"}}/>
+            <img src={FormImage} alt="" style={{width:"100%"}}/>
           </Col>
         </Row>
         <Row className="justify-content-center align-middle">
@@ -67,34 +51,16 @@ export default class Login extends Component {
               <p className="text-center">Debes iniciar sesión para poder acceder a este sition.</p>
           </Col>
         </Row>
-
         <Row className="justify-content-center align-middle">
-          <Col lg={5} xs={8}>            
-         <Formik initialValues={formInitialValues} validationSchema={formValidationSchema} onSubmit={onFormSubmit} >
-           {(formik)=>(<Form onSubmit={formik.handleSubmit}>
-              <Form.Group controlId="userEmail">
-                <Form.Label>Correo Electrónico</Form.Label>
-                <Form.Control type="email" placeholder="Correo Electrónico" name="email" {...formik.getFieldProps('email')}/>
-                {formik.touched.email && formik.errors.email ? <div style={{color:"red"}}>{formik.errors.email}</div> : null}
-              </Form.Group>
-        
-              <Form.Group controlId="userPassword">
-                <Form.Label>Contraseña</Form.Label>
-                <Form.Control type="password" placeholder="Contraseña" name="password" {...formik.getFieldProps('password')}/>
-                {formik.touched.password && formik.errors.password ? <div style={{color:"red"}}>{formik.errors.password}</div> : null}
+        <Col lg={5} xs={8}>     
+          {this.state.authentication_status === "failed" && <DismissAlert title="Error de autenticación!" message="Revise sus credenciales de acceso."/>}
+          {this.state.authentication_status === "error" && <DismissAlert title="Error General!" message="Se ha producido un error al intentar validar sus credenciales."/>}
+        </Col>
+      </Row>
+      <LoginForm onSubmit={onSubmit} /> 
 
-              </Form.Group>
-              <Form.Group controlId="formSubmit">
-                <Button variant="primary" type="submit" >
-                  Iniciar Sesión
-                </Button>
-              </Form.Group>
-            </Form>)}
-         </Formik>
-          </Col>
-        </Row>
-        </div>
-        : <Redirect to="/" />}
+      {(this.state.authentication_status === "success" || token) && <Redirect to="/" />}
+
       </Container>
     )
   }

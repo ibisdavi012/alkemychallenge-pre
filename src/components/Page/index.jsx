@@ -5,7 +5,8 @@ import {Redirect} from 'react-router-dom';
 export default class Page extends React.Component 
 {
     render(){
-        const loggedIn = localStorage.getItem('logged') !== null;
+        const token = localStorage.getItem('alkemyHeroesAppToken');
+        const loggedIn = token !== null;
         const RedirectTo = this.props.redirectTo;
         const requireAuthentication = this.props.requireAuthentication;
         return(

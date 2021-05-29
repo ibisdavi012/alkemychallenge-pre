@@ -2,7 +2,7 @@ import axios from 'axios';
 const AUTH_URL = 'http://challenge-react.alkemy.org/';
 const AUTH_TOKEN_NAME = 'alkemyHeroesAppToken';
 
-export default class UserLogin {
+export default class UserAuthentication {
 
   constructor(){
     this.started = () => {}
@@ -41,7 +41,7 @@ export default class UserLogin {
         this.completed();
   }
 
-  authenticate(credentials) {
+  validate(credentials) {
     if(typeof this.started === "function")
         this.started();
 

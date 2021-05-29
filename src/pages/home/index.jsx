@@ -9,7 +9,7 @@ export default class Home extends React.Component {
         const PageTitle = styled.h2``;
 
         return (
-            <Page requireAuthentication={true} redirectTo="/login">
+            <Page requireAuthentication={false} redirectTo="/login">
                 <PageTitle>Home</PageTitle>
                 <p className={styles.blueParagraph}>Paragraph from Home.js</p>
             </Page>
