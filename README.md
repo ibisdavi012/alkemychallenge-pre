@@ -17,7 +17,7 @@ Esta librería se utilizó para obtener datos de la API e superhéroes requerida
 ## Consultas medante PROXY para evitar errores CORS
 Durate el desarrollo, se presento un inconveniente al intentar consultar la API. Para superar Este obstacúlo, tuve que crear un servidor EXPRESS hospedado en HEROKU. Su función es recibir las peticiónes que se quieren realizar a la API (Superhéroes), y añadir los encabezados necesarios para que no se orinigine un error por intentar acceder a la API desde otro dominio.
 
-## Layout con boottrsap
+## Layout con bootstrap
 Utilicé Bootstrap como lo solicitan los parámetros del challenge.
 
 ## Uso de Media Queries y Styled Components 
