@@ -6,9 +6,8 @@ Los punos que considero claves de este proyecto, son los siguientes:
 
 ## Conceptos básicos de REACT
 
-
 ## Validación de formulario (Login) utilizando Formik
-Para esto se utilicé la librería formik, y se creé unos eventos para manejar los diferentes estados del prceso de validación. Se puede tener acceso a un eveno que se activa al iniciar el proceso, lo que permitiría, por ejemplo mostrar un loader. 
+Para esto utilicé la librería formik, y creé unos eventos para manejar los diferentes estados del prceso de validación. Se puede tener acceso a un eveno que se activa al iniciar el proceso, lo que permitiría, por ejemplo mostrar un loader. 
 
 Unavez realizada la consulta, se tiene acceso a dos eventos. Uno es "error" y el otro es "failed. El primero tiene que ver con problemas como errores de red, desconexión, etc. El segundo evento se dispara cuando todo (a nivel de conexión) ha marchado bien, pero la autenticación no ha sido exitosa. Lo mas probable es por no suministrar credenciales válidos.
 
