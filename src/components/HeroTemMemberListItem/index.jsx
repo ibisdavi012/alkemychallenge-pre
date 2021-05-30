@@ -21,15 +21,15 @@ export default class HeroTemMemberListItem extends Component {
                 <HeroImage src="https://www.superherodb.com/pictures2/portraits/10/100/628.jpg" alt="" />
                 <PowerstatsHeader>Powerstats:</PowerstatsHeader>
                 <Powerstats>
-                    <div><span style={powerStatLabelStyle}>Intelligence:</span><span class="poweStatValue">10</span></div>
-                    <div><span style={powerStatLabelStyle}>Strength:</span><span class="poweStatValue">8</span></div>
-                    <div><span style={powerStatLabelStyle}>Speed:</span><span class="poweStatValue">13</span></div>
-                    <div><span style={powerStatLabelStyle}>Durability:</span><span class="poweStatValue">5</span></div>
-                    <div><span style={powerStatLabelStyle}>Power:</span><span class="poweStatValue">5</span></div>
-                    <div><span style={powerStatLabelStyle}>Combat:</span><span class="poweStatValue">20</span></div>
+                    <div><span style={powerStatLabelStyle}>Intelligence:</span><span className="poweStatValue">10</span></div>
+                    <div><span style={powerStatLabelStyle}>Strength:</span><span className="poweStatValue">8</span></div>
+                    <div><span style={powerStatLabelStyle}>Speed:</span><span className="poweStatValue">13</span></div>
+                    <div><span style={powerStatLabelStyle}>Durability:</span><span className="poweStatValue">5</span></div>
+                    <div><span style={powerStatLabelStyle}>Power:</span><span className="poweStatValue">5</span></div>
+                    <div><span style={powerStatLabelStyle}>Combat:</span><span className="poweStatValue">20</span></div>
                 </Powerstats>
                 <UserActions>
-                    <span class="user-action btn btn-primary">Detalles</span><span class="user-action btn btn-danger">Eliminar</span>
+                    <span className="user-action btn btn-primary">Detalles</span><span className="user-action btn btn-danger">Eliminar</span>
                 </UserActions>
       </HeroItem>
     )
