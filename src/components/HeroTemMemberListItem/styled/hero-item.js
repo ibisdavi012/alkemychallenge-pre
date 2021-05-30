@@ -12,14 +12,9 @@ export const HeroItem = styled.div`
         background: rgb(211, 211, 195);
         margin: 1rem 0;
         min-width: 180px;
-        transform: rotate(-100deg);
         animation: enter 1s linear;
         animation-fill: forwards;
-        @keyframes enter {
-to {
-    transform: rotate(0);
-}
-        }
+        
         @media screen and (min-width:680px) {
              {
                 grid-template-columns: 2fr 5fr 2fr;

@@ -17,9 +17,9 @@ async function search(name) {
   return await response.data;
 }
 
-export default class SuperHerosAPI {
+export default class SuperHeroesAPI {
 
-  //id	GET	Search by character id. Returns all information of the character.
+  // id	GET	Search by character id. Returns all information of the character.
   static getCharacterById(id) {
     return get(id,'');
   }
